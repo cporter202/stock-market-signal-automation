@@ -21,7 +21,7 @@ Paste the HTTPS forwarding URL plus `/webhook` into your Developer API page.
 ## Environment
 
 ```text
-KAMDENA_SIGNING_SECRET=whsec_example_do_not_commit
+KAMDENAI_SIGNING_SECRET=whsec_example_do_not_commit
 PORT=3000
 ```
 

@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 load_dotenv()
 
 app = Flask(__name__)
-SIGNING_SECRET = os.getenv("KAMDENA_SIGNING_SECRET", "")
+SIGNING_SECRET = os.getenv("KAMDENAI_SIGNING_SECRET", "")
 PORT = int(os.getenv("PORT", "3000"))
 
 

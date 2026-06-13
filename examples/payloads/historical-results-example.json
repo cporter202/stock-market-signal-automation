@@ -1,0 +1,36 @@
+{
+  "period": {
+    "startDate": "2026-05-13",
+    "endDate": "2026-06-12",
+    "tradingDays": 22
+  },
+  "model": {
+    "event": "confirmed_buys.created",
+    "confirmationTime": "9:45 AM ET",
+    "universeSize": 75,
+    "filter": "CAUTION market: 4-star setups only"
+  },
+  "summary": {
+    "confirmedBuys": 94,
+    "positiveMovementAfterConfirmation": 94,
+    "movedAtLeastOneR": 30,
+    "targetHits": 9,
+    "stopTouchesAfterConfirmation": 8,
+    "averageMaxR": 0.95
+  },
+  "accountExamples": [
+    {
+      "accountSize": 5000,
+      "plannedRiskPerSetup": 50,
+      "heldTo3PmProfit": 1479.43,
+      "intradayHighStudyValue": 3676.1
+    },
+    {
+      "accountSize": 10000,
+      "plannedRiskPerSetup": 100,
+      "heldTo3PmProfit": 2958.86,
+      "intradayHighStudyValue": 7352.2
+    }
+  ],
+  "disclaimer": "Historical educational example only. Past performance does not guarantee future results."
+}

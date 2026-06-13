@@ -3,7 +3,7 @@ import express from "express";
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
-const signingSecret = process.env.KAMDENA_SIGNING_SECRET || "";
+const signingSecret = process.env.KAMDENAI_SIGNING_SECRET || "";
 
 app.use(express.raw({ type: "application/json" }));
 

@@ -37,13 +37,14 @@ If no picks qualify, the webhook can still send an event with `count: 0` and an 
 
 1. Read [Getting Started](docs/getting-started.md).
 2. Review the [Webhook Events](docs/webhook-events.md).
-3. Learn [Security and Signing](docs/security-and-signing.md).
-4. Pick an integration:
+3. Review the [Historical Account Examples](docs/historical-results.md).
+4. Learn [Security and Signing](docs/security-and-signing.md).
+5. Pick an integration:
    - [Make.com guide](docs/make-com.md)
    - [Discord guide](docs/discord.md)
    - [Google Sheets guide](docs/google-sheets.md)
    - [AI agents guide](docs/ai-agents.md)
-5. Run a local receiver:
+6. Run a local receiver:
    - [Node webhook receiver](examples/node-webhook-receiver/README.md)
    - [Python webhook receiver](examples/python-webhook-receiver/README.md)
 
@@ -108,6 +109,7 @@ docs/
   discord.md
   getting-started.md
   google-sheets.md
+  historical-results.md
   make-com.md
   security-and-signing.md
   troubleshooting.md

@@ -63,7 +63,7 @@ Reject old timestamps. A common tolerance is 5 minutes.
 Store secrets in environment variables:
 
 ```text
-KAMDENA_SIGNING_SECRET=whsec_example_do_not_commit
+KAMDENAI_SIGNING_SECRET=whsec_example_do_not_commit
 ```
 
 Never commit real secrets to GitHub.

@@ -1,0 +1,34 @@
+{
+  "event": "confirmed_buys.created",
+  "dateKey": "2026-06-12",
+  "sentAt": "2026-06-12T13:45:00.000Z",
+  "data": {
+    "count": 2,
+    "signals": [
+      {
+        "ticker": "ABCD",
+        "company": "Example Holdings",
+        "entry": 24.5,
+        "stop": 23.95,
+        "target": 25.6,
+        "riskPerShare": 0.55,
+        "rewardPerShare": 1.1,
+        "rMultipleTarget": 2,
+        "setup": "20 EMA pullback",
+        "status": "confirmed_buy"
+      },
+      {
+        "ticker": "MNOP",
+        "company": "Mock Industrial",
+        "entry": 33.1,
+        "stop": 32.25,
+        "target": 34.8,
+        "riskPerShare": 0.85,
+        "rewardPerShare": 1.7,
+        "rMultipleTarget": 2,
+        "setup": "20 EMA pullback",
+        "status": "confirmed_buy"
+      }
+    ]
+  }
+}

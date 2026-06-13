@@ -1,0 +1,34 @@
+{
+  "event": "morning_scan.created",
+  "dateKey": "2026-06-12",
+  "sentAt": "2026-06-12T13:00:00.000Z",
+  "data": {
+    "count": 3,
+    "signals": [
+      {
+        "ticker": "ABCD",
+        "company": "Example Holdings",
+        "entry": 24.5,
+        "stop": 23.95,
+        "target": 25.6,
+        "riskPerShare": 0.55,
+        "rewardPerShare": 1.1,
+        "rMultipleTarget": 2,
+        "setup": "20 EMA pullback",
+        "status": "setup_candidate"
+      },
+      {
+        "ticker": "EFGH",
+        "company": "Sample Energy",
+        "entry": 51.2,
+        "stop": 50.05,
+        "target": 53.5,
+        "riskPerShare": 1.15,
+        "rewardPerShare": 2.3,
+        "rMultipleTarget": 2,
+        "setup": "20 EMA pullback",
+        "status": "setup_candidate"
+      }
+    ]
+  }
+}

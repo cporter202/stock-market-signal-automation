@@ -1,0 +1,10 @@
+{
+  "event": "confirmed_buys.created",
+  "dateKey": "2026-06-12",
+  "sentAt": "2026-06-12T13:45:00.000Z",
+  "data": {
+    "count": 0,
+    "signals": [],
+    "message": "No confirmed buy signals today."
+  }
+}

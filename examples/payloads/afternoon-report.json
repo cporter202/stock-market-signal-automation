@@ -1,0 +1,36 @@
+{
+  "event": "afternoon_report.created",
+  "dateKey": "2026-06-12",
+  "sentAt": "2026-06-12T19:15:00.000Z",
+  "data": {
+    "count": 2,
+    "results": [
+      {
+        "ticker": "ABCD",
+        "entry": 24.5,
+        "stop": 23.95,
+        "target": 25.6,
+        "high": 25.82,
+        "low": 24.41,
+        "maxR": 2.4,
+        "status": "target_area_reached"
+      },
+      {
+        "ticker": "MNOP",
+        "entry": 33.1,
+        "stop": 32.25,
+        "target": 34.8,
+        "high": 33.94,
+        "low": 32.91,
+        "maxR": 0.99,
+        "status": "moved_in_favor"
+      }
+    ],
+    "nextDayPrep": [
+      {
+        "ticker": "QRST",
+        "note": "Watch for a clean setup and confirmation tomorrow."
+      }
+    ]
+  }
+}

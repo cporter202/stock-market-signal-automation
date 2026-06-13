@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal Dashboard Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Signal Webhook Demo</p>
+        <h1>Stock Market Signal Dashboard</h1>
+        <p>Paste a sample webhook payload to preview how events can be displayed.</p>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Payload</h2>
+          <textarea id="payloadInput" spellcheck="false"></textarea>
+          <button id="renderButton" type="button">Render Payload</button>
+          <p id="errorText" class="error"></p>
+        </div>
+
+        <div class="panel">
+          <h2>Preview</h2>
+          <div id="preview" class="preview"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

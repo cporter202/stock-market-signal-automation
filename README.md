@@ -7,6 +7,7 @@ Build your own data-driven market edge with swing-trade signal webhooks, dashboa
 <img src="assets/kamdenai-homepage.png" alt="KamdenAI homepage preview" width="100%" />
 
 <br />
+<br />
 
 ![API](https://img.shields.io/badge/API-Signal_Webhooks-0ea5e9?style=for-the-badge)
 ![Category](https://img.shields.io/badge/Category-Trading_Automation-22c55e?style=for-the-badge)

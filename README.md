@@ -1,4 +1,12 @@
+<div align="center">
+
 # Stock Market Signal Automation
+
+Build your own data-driven market edge with swing-trade signal webhooks, dashboards, alerts, AI agents, and automation examples.
+
+<img src="assets/kamdenai-homepage.png" alt="KamdenAI homepage preview" width="100%" />
+
+<br />
 
 ![API](https://img.shields.io/badge/API-Signal_Webhooks-0ea5e9?style=for-the-badge)
 ![Category](https://img.shields.io/badge/Category-Trading_Automation-22c55e?style=for-the-badge)
@@ -7,9 +15,7 @@
 ![Examples](https://img.shields.io/badge/Examples-Ready-8b5cf6?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-64748b?style=for-the-badge)
 
-Build your own data-driven market edge with swing-trade signal webhooks, dashboards, alerts, AI agents, and automation examples.
-
-![KamdenAI homepage preview](assets/kamdenai-homepage.png)
+</div>
 
 This repo is a public starter kit for traders, builders, and developers who want to route stock market signal data into their own tools. It shows how to receive signal webhooks, verify webhook signatures, format alerts, log payloads, and build simple automations around signal events.
 

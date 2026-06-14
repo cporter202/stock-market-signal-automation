@@ -1,5 +1,12 @@
 # Stock Market Signal Automation
 
+![API](https://img.shields.io/badge/API-Signal_Webhooks-0ea5e9?style=for-the-badge)
+![Category](https://img.shields.io/badge/Category-Trading_Automation-22c55e?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-16a34a?style=for-the-badge)
+![Updated](https://img.shields.io/badge/Updated-Daily-facc15?style=for-the-badge)
+![Examples](https://img.shields.io/badge/Examples-Ready-8b5cf6?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-64748b?style=for-the-badge)
+
 Build your own data-driven market edge with swing-trade signal webhooks, dashboards, alerts, AI agents, and automation examples.
 
 ![KamdenAI homepage preview](assets/kamdenai-homepage.png)

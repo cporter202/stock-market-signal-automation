@@ -1,0 +1,3 @@
+received_at,date_key,event,delivery_id,ticker,company,entry,stop,target,risk_per_share,reward_per_share,target_r,status,message
+2026-06-12T13:45:00.000Z,2026-06-12,confirmed_buys.created,example-delivery-id,ABCD,Example Holdings,24.50,23.95,25.60,0.55,1.10,2.00,confirmed_buy,
+2026-06-12T13:45:00.000Z,2026-06-12,confirmed_buys.created,example-delivery-id,,,,,,,,,no_picks,No confirmed buy signals today.

@@ -18,7 +18,7 @@ Use this checklist before putting a webhook consumer into production.
 
 ## Data Handling
 
-- [ ] Handles `data.count = 0`
+- [ ] Handles empty `data.confirmedBuys` and `data.quickExitResults`
 - [ ] Handles missing optional fields
 - [ ] Handles retries
 - [ ] Stores raw event if needed

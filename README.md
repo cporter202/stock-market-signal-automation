@@ -41,7 +41,7 @@ The signal engine stays private. The integration layer is public so members can 
 
 | Build | What It Does |
 | --- | --- |
-| Discord alert channel | Posts confirmed buys, fast movers, and no-pick days into private channels |
+| Discord alert channel | Posts plan scans, confirmed buys, quick-exit results, and no-pick days into private channels |
 | Google Sheets journal | Logs every signal, result, and delivery ID |
 | Private dashboard | Displays active signals and historical performance examples |
 | Make/Zapier workflow | Routes payloads into tools without writing code |
@@ -64,21 +64,15 @@ Typical event schedule:
 
 | Time | Event | Purpose |
 | --- | --- | --- |
-| 9:00 AM ET | `morning_scan.created` | Setup scan candidates |
-| 9:33 AM ET | `fast_movers.created` | Fast mover watch |
-| 9:45 AM ET | `confirmed_buys.created` | Confirmed buy signals |
-| 3:15 PM ET | `afternoon_report.created` | Results and next-day prep |
+| 9:28 AM ET | `morning_scan.created` | Morning plan scan with entry, stop, target, and sizing context |
+| 9:30 AM ET | `confirmed_buys.created` | Official top-two confirmed buys ranked by opening strength |
+| 10:05 AM ET | `quick_exit_results.created` | Official morning quick-exit result for the confirmed-buy list |
 
-If no picks qualify, the webhook can still send an event with `count: 0` and an empty signal list. That lets your automation know the scan ran successfully.
+If no picks qualify, the webhook can still send an event with an empty `confirmedBuys` or `quickExitResults` list. That lets your automation know the workflow ran successfully.
 
 ## Historical Example
 
-A recent 9:45 AM confirmed-buy historical test is included so builders can see how account-sized signal tracking can be modeled:
-
-| Account size | Held to 3 PM simulation | Intraday-high study value |
-| --- | ---: | ---: |
-| $5,000 | +$1,479.43 | +$3,676.10 |
-| $10,000 | +$2,958.86 | +$7,352.20 |
+The live product now uses a focused morning model: 9:28 plan, 9:30 top-two confirmation, and 10:05 quick-exit result. A public-safe historical notes page is included so builders can see how to structure result tracking without exposing private scan logic.
 
 Read the assumptions and disclaimers in [Historical Account Examples](docs/historical-results.md). Past performance does not guarantee future results.
 
@@ -100,22 +94,24 @@ Read the assumptions and disclaimers in [Historical Account Examples](docs/histo
 ```json
 {
   "event": "confirmed_buys.created",
-  "dateKey": "2026-06-12",
-  "sentAt": "2026-06-12T13:45:00.000Z",
+  "dateKey": "2026-06-22",
+  "sentAt": "2026-06-22T13:30:15.000Z",
   "data": {
-    "count": 2,
-    "signals": [
+    "confirmedBuys": [
       {
-        "ticker": "ABCD",
-        "company": "Example Holdings",
+        "ticker": "SOFI",
+        "name": "SoFi Technologies",
         "entry": 24.5,
         "stop": 23.95,
         "target": 25.6,
-        "riskPerShare": 0.55,
-        "rewardPerShare": 1.1,
-        "rMultipleTarget": 2,
-        "setup": "20 EMA pullback",
-        "status": "confirmed_buy"
+        "shares": 181,
+        "riskDollars": 99.55,
+        "openingConfirmation": {
+          "status": "confirmed_buy",
+          "statusLabel": "Top 1 confirmed buy",
+          "entryDistanceR": 0.42,
+          "windowEnd": "9:30 AM"
+        }
       }
     ]
   }

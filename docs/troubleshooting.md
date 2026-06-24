@@ -2,11 +2,11 @@
 
 ## My Test Webhook Works, But My Automation Does Nothing
 
-Check whether your filter requires `data.count > 0`. Test events use `event: webhook.test` and may not include real signal arrays.
+Check whether your filter is looking at the current event field. The current rows live in `data.scan.buySignals`, `data.scan.watchSignals`, `data.confirmedBuys`, or `data.quickExitResults` depending on the event.
 
 ## I Got A No-Pick Payload
 
-That is normal. It means the scan ran but no signals qualified.
+That is normal. It means the scan ran but no official top-two buys qualified, or the 10:05 result event had no confirmed buys to report.
 
 ## I See Duplicate Events
 

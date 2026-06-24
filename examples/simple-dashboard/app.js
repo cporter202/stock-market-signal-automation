@@ -5,19 +5,21 @@ const preview = document.querySelector("#preview");
 
 input.value = JSON.stringify({
   event: "confirmed_buys.created",
-  dateKey: "2026-06-12",
-  sentAt: "2026-06-12T13:45:00.000Z",
+  dateKey: "2026-06-22",
+  sentAt: "2026-06-22T13:30:15.000Z",
   data: {
-    count: 1,
-    signals: [
+    confirmedBuys: [
       {
-        ticker: "ABCD",
-        company: "Example Holdings",
+        ticker: "SOFI",
+        name: "SoFi Technologies",
         entry: 24.5,
         stop: 23.95,
         target: 25.6,
-        rMultipleTarget: 2,
-        status: "confirmed_buy"
+        shares: 181,
+        openingConfirmation: {
+          statusLabel: "Top 1 confirmed buy",
+          entryDistanceR: 0.42
+        }
       }
     ]
   }
@@ -48,7 +50,7 @@ function render() {
   preview.appendChild(header);
 
   const data = payload.data || {};
-  const rows = data.signals || data.results || [];
+  const rows = rowsForPayload(payload);
 
   if (rows.length === 0) {
     const empty = document.createElement("div");
@@ -62,12 +64,20 @@ function render() {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-      <strong>${row.ticker || "Unknown"} ${row.company ? `- ${row.company}` : ""}</strong>
+      <strong>${row.ticker || "Unknown"} ${row.company || row.name ? `- ${row.company || row.name}` : ""}</strong>
       <div class="meta">Entry: ${money(row.entry)} | Stop: ${money(row.stop)} | Target: ${money(row.target)}</div>
-      <div class="meta">Status: ${row.status || "n/a"} | Target R: ${row.rMultipleTarget || row.maxR || "n/a"}</div>
+      <div class="meta">${row.openingConfirmation?.statusLabel || row.result?.quickExit?.statusLabel || row.status || "n/a"}</div>
     `;
     preview.appendChild(card);
   }
+}
+
+function rowsForPayload(payload) {
+  const data = payload.data || {};
+  if (Array.isArray(data.confirmedBuys)) return data.confirmedBuys;
+  if (Array.isArray(data.quickExitResults)) return data.quickExitResults;
+  if (data.scan) return [...(data.scan.buySignals || []), ...(data.scan.watchSignals || [])];
+  return [];
 }
 
 button.addEventListener("click", render);

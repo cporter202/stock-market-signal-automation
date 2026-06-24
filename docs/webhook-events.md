@@ -7,10 +7,9 @@ KamdenAI signal webhooks are event-based. Your endpoint receives a JSON payload 
 | Event | Typical Time | Description |
 | --- | --- | --- |
 | `webhook.test` | On demand | Test event from the Developer API page |
-| `morning_scan.created` | 9:00 AM ET | Morning setup scan |
-| `fast_movers.created` | 9:33 AM ET | Fast mover watch |
-| `confirmed_buys.created` | 9:45 AM ET | Confirmed buy signals |
-| `afternoon_report.created` | 3:15 PM ET | Results and next-day prep |
+| `morning_scan.created` | 9:28 AM ET | Morning plan scan |
+| `confirmed_buys.created` | 9:30 AM ET | Official top-two confirmed buys |
+| `quick_exit_results.created` | 10:05 AM ET | Official morning quick-exit result |
 
 Market holidays, weekends, data provider issues, or system maintenance can affect event timing and availability.
 
@@ -19,14 +18,21 @@ Market holidays, weekends, data provider issues, or system maintenance can affec
 ```json
 {
   "event": "confirmed_buys.created",
-  "dateKey": "2026-06-12",
-  "sentAt": "2026-06-12T13:45:00.000Z",
+  "dateKey": "2026-06-22",
+  "sentAt": "2026-06-22T13:30:15.000Z",
   "data": {
-    "count": 1,
-    "signals": []
+    "confirmedBuys": []
   }
 }
 ```
+
+## Current Event Payloads
+
+| Event | Primary data field | Notes |
+| --- | --- | --- |
+| `morning_scan.created` | `data.scan` | Includes the morning scan object with `buySignals` and `watchSignals` plan rows. |
+| `confirmed_buys.created` | `data.confirmedBuys` | Contains only the official top-two 9:30 confirmations. Empty array means no official buys. |
+| `quick_exit_results.created` | `data.quickExitResults` | Contains 10:05 result rows for confirmed buys. `noConfirmedBuys` can be true. |
 
 ## Signal Fields
 
@@ -45,6 +51,10 @@ Fields can vary by event, but signal-style payloads may include:
 | `setup` | Public setup label |
 | `status` | Event-specific status |
 | `notes` | Public notes when available |
+| `shares` | Account-based share count when available |
+| `riskDollars` | Estimated dollar risk when available |
+| `openingConfirmation` | 9:30 confirmation details for confirmed-buy rows |
+| `result.quickExit` | 10:05 quick-exit outcome for result rows |
 
 ## No-Pick Events
 
@@ -53,12 +63,11 @@ No-pick days are normal. Your automation should handle:
 ```json
 {
   "event": "confirmed_buys.created",
-  "dateKey": "2026-06-12",
-  "sentAt": "2026-06-12T13:45:00.000Z",
+  "dateKey": "2026-06-22",
+  "sentAt": "2026-06-22T13:30:15.000Z",
   "data": {
-    "count": 0,
-    "signals": [],
-    "message": "No confirmed buy signals today."
+    "confirmedBuys": [],
+    "message": "No official top-two confirmed buys at 9:30."
   }
 }
 ```

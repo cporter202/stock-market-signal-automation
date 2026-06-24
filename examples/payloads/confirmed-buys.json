@@ -1,33 +1,47 @@
 {
   "event": "confirmed_buys.created",
-  "dateKey": "2026-06-12",
-  "sentAt": "2026-06-12T13:45:00.000Z",
+  "dateKey": "2026-06-22",
+  "sentAt": "2026-06-22T13:30:15.000Z",
   "data": {
-    "count": 2,
-    "signals": [
+    "scanId": "2026-06-22_morning",
+    "marketStatus": "BULLISH",
+    "marketDetail": "SPY/QQQ market context",
+    "sizingBasis": {
+      "personalized": true,
+      "availableCash": 5000,
+      "riskPct": 2,
+      "maxRiskDollars": 100
+    },
+    "confirmedBuys": [
       {
-        "ticker": "ABCD",
-        "company": "Example Holdings",
-        "entry": 24.5,
-        "stop": 23.95,
-        "target": 25.6,
-        "riskPerShare": 0.55,
-        "rewardPerShare": 1.1,
-        "rMultipleTarget": 2,
-        "setup": "20 EMA pullback",
-        "status": "confirmed_buy"
+        "ticker": "SOFI",
+        "name": "SoFi Technologies",
+        "entry": 12.34,
+        "stop": 12.09,
+        "target": 12.84,
+        "shares": 400,
+        "riskDollars": 100,
+        "openingConfirmation": {
+          "status": "confirmed_buy",
+          "statusLabel": "Top 1 confirmed buy",
+          "entryDistanceR": 0.42,
+          "windowEnd": "9:30 AM"
+        }
       },
       {
-        "ticker": "MNOP",
-        "company": "Mock Industrial",
-        "entry": 33.1,
-        "stop": 32.25,
-        "target": 34.8,
-        "riskPerShare": 0.85,
-        "rewardPerShare": 1.7,
-        "rMultipleTarget": 2,
-        "setup": "20 EMA pullback",
-        "status": "confirmed_buy"
+        "ticker": "HOOD",
+        "name": "Robinhood Markets",
+        "entry": 84.2,
+        "stop": 82.95,
+        "target": 86.7,
+        "shares": 80,
+        "riskDollars": 100,
+        "openingConfirmation": {
+          "status": "confirmed_buy",
+          "statusLabel": "Top 2 confirmed buy",
+          "entryDistanceR": 0.31,
+          "windowEnd": "9:30 AM"
+        }
       }
     ]
   }

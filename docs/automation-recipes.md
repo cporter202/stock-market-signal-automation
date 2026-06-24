@@ -6,7 +6,7 @@ These are public-safe ways to build around signal webhooks without exposing priv
 
 ```text
 Webhook received
-  -> if data.count > 0
+  -> if data.confirmedBuys has rows
   -> format message
   -> post to #confirmed-buys
 ```
@@ -17,7 +17,10 @@ Best for: community alerts, private groups, personal signal rooms.
 
 ```text
 Webhook received
-  -> iterate data.signals[]
+  -> choose event rows
+  -> for plans use data.scan.buySignals/watchSignals
+  -> for buys use data.confirmedBuys
+  -> for exits use data.quickExitResults
   -> append row to sheet
   -> include delivery ID
 ```
@@ -62,7 +65,7 @@ Best for: experienced builders. Start with paper trading.
 
 ```text
 Webhook received
-  -> if data.count = 0
+  -> if confirmedBuys is empty or noConfirmedBuys is true
   -> log scan ran successfully
   -> send optional "no picks today" note
 ```

@@ -6,30 +6,29 @@
   },
   "model": {
     "event": "confirmed_buys.created",
-    "confirmationTime": "9:45 AM ET",
-    "universeSize": 75,
-    "filter": "CAUTION market: 4-star setups only"
+    "planTime": "9:28 AM ET",
+    "confirmationTime": "9:30 AM ET",
+    "exitTime": "10:05 AM ET",
+    "rule": "Only the top two valid opening-strength confirmations become official buys."
   },
   "summary": {
-    "confirmedBuys": 94,
-    "positiveMovementAfterConfirmation": 94,
-    "movedAtLeastOneR": 30,
-    "targetHits": 9,
-    "stopTouchesAfterConfirmation": 8,
-    "averageMaxR": 0.95
+    "note": "Use your own received payloads to calculate current-system results.",
+    "eventsToJoin": [
+      "morning_scan.created",
+      "confirmed_buys.created",
+      "quick_exit_results.created"
+    ]
   },
   "accountExamples": [
     {
       "accountSize": 5000,
-      "plannedRiskPerSetup": 50,
-      "heldTo3PmProfit": 1479.43,
-      "intradayHighStudyValue": 3676.1
+      "riskPct": 2,
+      "maxRiskDollars": 100
     },
     {
       "accountSize": 10000,
-      "plannedRiskPerSetup": 100,
-      "heldTo3PmProfit": 2958.86,
-      "intradayHighStudyValue": 7352.2
+      "riskPct": 2,
+      "maxRiskDollars": 200
     }
   ],
   "disclaimer": "Historical educational example only. Past performance does not guarantee future results."

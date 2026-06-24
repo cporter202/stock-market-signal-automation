@@ -14,10 +14,9 @@ Use this checklist when building a Make.com scenario for signal webhooks.
 ## Routing
 
 - [ ] Add route for `confirmed_buys.created`.
-- [ ] Add route for `fast_movers.created`.
 - [ ] Add route for `morning_scan.created`.
-- [ ] Add route for `afternoon_report.created`.
-- [ ] Add route for `data.count = 0`.
+- [ ] Add route for `quick_exit_results.created`.
+- [ ] Add route for empty `data.confirmedBuys` or `data.noConfirmedBuys = true`.
 
 ## Actions
 

@@ -17,7 +17,7 @@ If Make shows the test payload, the connection works.
 
 ## Common Automations
 
-- Send confirmed buys to Discord.
+- Send the 9:28 plan scan, 9:30 confirmed buys, and 10:05 quick-exit results to Discord.
 - Add rows to Google Sheets.
 - Send yourself an SMS when `confirmed_buys.created` has picks.
 - Create a daily Notion page.
@@ -26,16 +26,16 @@ If Make shows the test payload, the connection works.
 
 ## Filter Example
 
-Only continue if a signal event has picks:
+Only continue if a confirmed-buy event has official picks:
 
 ```text
-data.count > 0
+length(data.confirmedBuys) > 0
 ```
 
 Route no-pick days separately:
 
 ```text
-data.count = 0
+length(data.confirmedBuys) = 0
 ```
 
 ## Useful Fields
@@ -45,8 +45,10 @@ In Make, you can map:
 - `event`
 - `dateKey`
 - `sentAt`
-- `data.count`
-- `data.signals[]`
+- `data.scan.buySignals[]`
+- `data.scan.watchSignals[]`
+- `data.confirmedBuys[]`
+- `data.quickExitResults[]`
 - `data.message`
 
 ## Signing Secret

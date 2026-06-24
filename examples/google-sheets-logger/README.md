@@ -27,10 +27,10 @@ Message
 
 1. Webhooks: Custom webhook
 2. Router:
-   - Route A: `data.count > 0`
-   - Route B: `data.count = 0`
+   - Route A: rows exist for the selected event
+   - Route B: no official picks or `data.noConfirmedBuys = true`
 3. Route A:
-   - Iterator over `data.signals[]`
+   - Iterator over `data.scan.buySignals[]`, `data.scan.watchSignals[]`, `data.confirmedBuys[]`, or `data.quickExitResults[]`
    - Google Sheets: Add a row
 4. Route B:
    - Google Sheets: Add a no-pick row

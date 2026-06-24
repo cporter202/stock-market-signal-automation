@@ -1,0 +1,50 @@
+{
+  "event": "quick_exit_results.created",
+  "dateKey": "2026-06-22",
+  "sentAt": "2026-06-22T14:06:10.000Z",
+  "data": {
+    "scanId": "2026-06-22_morning",
+    "marketStatus": "BULLISH",
+    "marketDetail": "SPY/QQQ market context",
+    "confirmedBuyCount": 2,
+    "noConfirmedBuys": false,
+    "sizingBasis": {
+      "personalized": true,
+      "availableCash": 5000,
+      "riskPct": 2,
+      "maxRiskDollars": 100
+    },
+    "quickExitResults": [
+      {
+        "ticker": "SOFI",
+        "entry": 12.34,
+        "shares": 400,
+        "result": {
+          "quickExit": {
+            "label": "10:05 AM quick exit",
+            "price": 12.58,
+            "profitDollars": 96,
+            "r": 0.96,
+            "status": "profit",
+            "statusLabel": "Profit"
+          }
+        }
+      },
+      {
+        "ticker": "HOOD",
+        "entry": 84.2,
+        "shares": 80,
+        "result": {
+          "quickExit": {
+            "label": "10:05 AM quick exit",
+            "price": 84.92,
+            "profitDollars": 57.6,
+            "r": 0.58,
+            "status": "profit",
+            "statusLabel": "Profit"
+          }
+        }
+      }
+    ]
+  }
+}

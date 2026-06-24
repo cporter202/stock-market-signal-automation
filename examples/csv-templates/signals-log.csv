@@ -1,3 +1,4 @@
-received_at,date_key,event,delivery_id,ticker,company,entry,stop,target,risk_per_share,reward_per_share,target_r,status,message
-2026-06-12T13:45:00.000Z,2026-06-12,confirmed_buys.created,example-delivery-id,ABCD,Example Holdings,24.50,23.95,25.60,0.55,1.10,2.00,confirmed_buy,
-2026-06-12T13:45:00.000Z,2026-06-12,confirmed_buys.created,example-delivery-id,,,,,,,,,no_picks,No confirmed buy signals today.
+received_at,date_key,event,delivery_id,ticker,company,entry,stop,target,shares,risk_dollars,status,message
+2026-06-22T13:30:15.000Z,2026-06-22,confirmed_buys.created,example-delivery-id,SOFI,SoFi Technologies,12.34,12.09,12.84,400,100,confirmed_buy,
+2026-06-22T13:30:15.000Z,2026-06-22,confirmed_buys.created,example-delivery-id,,,,,,,,no_picks,No official top-two confirmed buys at 9:30.
+2026-06-22T14:06:10.000Z,2026-06-22,quick_exit_results.created,example-delivery-id,SOFI,SoFi Technologies,,,,400,,profit,10:05 quick exit at 12.58.

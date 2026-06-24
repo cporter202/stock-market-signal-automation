@@ -10,18 +10,31 @@ if (!inputPath) {
 
 const payload = JSON.parse(fs.readFileSync(path.resolve(inputPath), "utf8"));
 const data = payload.data || {};
-const rows = data.signals || data.results || [];
+const rows = rowsForPayload(payload);
+
+function rowsForPayload(payload) {
+  const eventData = payload.data || {};
+  if (Array.isArray(eventData.confirmedBuys)) return eventData.confirmedBuys;
+  if (Array.isArray(eventData.quickExitResults)) return eventData.quickExitResults;
+  if (eventData.scan) {
+    return [
+      ...(eventData.scan.buySignals || []),
+      ...(eventData.scan.watchSignals || [])
+    ];
+  }
+  return [];
+}
 
 const prompt = [
   "You are reviewing a stock signal webhook payload.",
   "Summarize the event in plain English for a trader.",
   "Do not provide financial advice.",
   "Do not invent missing fields.",
-  "If there are no signals, say that the scan ran with no qualifying picks.",
+  "If there are no rows, say that the event ran with no official picks.",
   "",
   `Event: ${payload.event || "unknown"}`,
   `Date: ${payload.dateKey || "unknown"}`,
-  `Count: ${data.count ?? rows.length}`,
+  `Count: ${data.confirmedBuyCount ?? rows.length}`,
   "",
   "Payload:",
   JSON.stringify(payload, null, 2)

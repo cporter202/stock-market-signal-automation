@@ -3,12 +3,11 @@
   "dateKey": "2026-06-12",
   "sentAt": "2026-06-12T23:25:00.000Z",
   "data": {
-    "message": "KamdenAI webhook test delivery.",
-    "exampleEvents": [
+    "message": "KamdenAI webhook test delivery for the current morning execution system.",
+    "currentEvents": [
       "morning_scan.created",
-      "fast_movers.created",
       "confirmed_buys.created",
-      "afternoon_report.created"
+      "quick_exit_results.created"
     ]
   }
 }

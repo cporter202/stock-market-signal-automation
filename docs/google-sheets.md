@@ -22,14 +22,16 @@ Google Sheets is useful for keeping a clean signal history.
 ## Make.com Flow
 
 ```text
-Webhook trigger -> Iterator over data.signals[] -> Google Sheets Add Row
+Webhook trigger -> pick rows by event -> Google Sheets Add Row
 ```
+
+Use `data.scan.buySignals[]` and `data.scan.watchSignals[]` for the 9:28 plan scan, `data.confirmedBuys[]` for the 9:30 official buys, and `data.quickExitResults[]` for the 10:05 result.
 
 For no-pick days, add a single row with:
 
 - Event
 - Date
-- Count: 0
+- Count: 0 or noConfirmedBuys: true
 - Message
 
 ## Why Log No-Pick Days?

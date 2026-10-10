@@ -1,41 +1,30 @@
 {
   "event": "morning_scan.created",
-  "dateKey": "2026-06-22",
-  "sentAt": "2026-06-22T13:28:30.000Z",
+  "dateKey": "2026-10-08",
+  "sentAt": "2026-10-08T13:28:25.000Z",
   "data": {
-    "scanId": "2026-06-22_morning",
-    "sizingBasis": {
-      "personalized": true,
-      "availableCash": 5000,
-      "riskPct": 2,
-      "maxRiskDollars": 100
-    },
+    "scanId": "2026-10-08_morning",
+    "purpose": "Preparation only; not official signals.",
     "scan": {
-      "dateKey": "2026-06-22",
+      "dateKey": "2026-10-08",
       "mode": "morning",
-      "marketStatus": "CAUTION",
-      "marketDetail": "SPY/QQQ market context",
-      "buySignals": [],
-      "watchSignals": [
+      "buySignals": [
         {
-          "ticker": "SOFI",
-          "name": "SoFi Technologies",
-          "entry": 12.34,
-          "stop": 12.09,
-          "target": 12.84,
-          "shares": 400,
-          "riskDollars": 100
+          "ticker": "DEMOA",
+          "name": "Illustrative candidate A",
+          "entry": 20,
+          "stop": 19.5,
+          "target": 20.5
         },
         {
-          "ticker": "HOOD",
-          "name": "Robinhood Markets",
-          "entry": 84.2,
-          "stop": 82.95,
-          "target": 86.7,
-          "shares": 80,
-          "riskDollars": 100
+          "ticker": "DEMOB",
+          "name": "Illustrative candidate B",
+          "entry": 40,
+          "stop": 39,
+          "target": 41
         }
-      ]
+      ],
+      "watchSignals": []
     }
   }
 }

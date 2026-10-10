@@ -1,35 +1,16 @@
 {
-  "period": {
-    "startDate": "2026-05-13",
-    "endDate": "2026-06-12",
-    "tradingDays": 22
-  },
+  "illustrative": true,
   "model": {
-    "event": "confirmed_buys.created",
-    "planTime": "9:28 AM ET",
-    "confirmationTime": "9:30 AM ET",
-    "exitTime": "10:05 AM ET",
-    "rule": "Only the top two valid opening-strength confirmations become official buys."
+    "confirmation": "Zero to eight independently confirmed candidates after opening review",
+    "exit": "Target, stop, or 10:05 AM Eastern reference",
+    "execution": "Published entry verified after publication; not broker fills"
   },
   "summary": {
-    "note": "Use your own received payloads to calculate current-system results.",
+    "note": "No historical performance claims. Preserve each session policy and separate study outcomes.",
     "eventsToJoin": [
-      "morning_scan.created",
       "confirmed_buys.created",
       "quick_exit_results.created"
     ]
   },
-  "accountExamples": [
-    {
-      "accountSize": 5000,
-      "riskPct": 2,
-      "maxRiskDollars": 100
-    },
-    {
-      "accountSize": 10000,
-      "riskPct": 2,
-      "maxRiskDollars": 200
-    }
-  ],
-  "disclaimer": "Historical educational example only. Past performance does not guarantee future results."
+  "disclaimer": "Fictional teaching example only. Past performance does not guarantee future results."
 }

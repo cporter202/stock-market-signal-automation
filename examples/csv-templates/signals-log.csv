@@ -1,4 +1,3 @@
-received_at,date_key,event,delivery_id,ticker,company,entry,stop,target,shares,risk_dollars,status,message
-2026-06-22T13:30:15.000Z,2026-06-22,confirmed_buys.created,example-delivery-id,SOFI,SoFi Technologies,12.34,12.09,12.84,400,100,confirmed_buy,
-2026-06-22T13:30:15.000Z,2026-06-22,confirmed_buys.created,example-delivery-id,,,,,,,,no_picks,No official top-two confirmed buys at 9:30.
-2026-06-22T14:06:10.000Z,2026-06-22,quick_exit_results.created,example-delivery-id,SOFI,SoFi Technologies,,,,400,,profit,10:05 quick exit at 12.58.
+received_at,date,event,delivery_id,ticker,company,entry,stop,target,shares,risk_dollars,status,notes
+2026-10-08T13:34:10.000Z,2026-10-08,confirmed_buys.created,fictional-delivery,DEMOA,Illustrative candidate A,20,19.5,20.5,,,confirmed_buy,Rank 2; fictional example
+2026-10-08T13:35:10.000Z,2026-10-08,confirmed_buys.created,fictional-empty-delivery,,,,,,,,no_picks,Completed review; no official confirmations

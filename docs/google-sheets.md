@@ -25,7 +25,7 @@ Google Sheets is useful for keeping a clean signal history.
 Webhook trigger -> pick rows by event -> Google Sheets Add Row
 ```
 
-Use `data.scan.buySignals[]` and `data.scan.watchSignals[]` for the 9:28 plan scan, `data.confirmedBuys[]` for the 9:30 official buys, and `data.quickExitResults[]` for the 10:05 result.
+Use `data.scan.buySignals[]` and `data.scan.watchSignals[]` for the 9:28 plan scan, `data.confirmedBuys[]` for the official opening signals, and `data.quickExitResults[]` for the 10:05 result.
 
 For no-pick days, add a single row with:
 
@@ -36,7 +36,7 @@ For no-pick days, add a single row with:
 
 ## Why Log No-Pick Days?
 
-No-pick rows prove the scan ran. That makes your logs cleaner because you can distinguish "nothing qualified" from "the webhook broke."
+Completed no-confirmation records document an outcome; empty rows alone do not prove review completion. That makes your logs cleaner because you can distinguish "nothing qualified" from "the webhook broke."
 
 ## Template
 

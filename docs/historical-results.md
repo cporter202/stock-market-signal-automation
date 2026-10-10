@@ -1,57 +1,27 @@
-# Historical Account Examples
+# Result Tracking and Historical Comparisons
 
-This page shows a public-safe structure for reviewing the current KamdenAI signal framework against your own received webhook data.
+This repository contains fictional teaching examples, not a published track record or verified account returns. Review the dated member ledger and its assumptions for actual system records.
 
-These numbers are not financial advice, not a promise of future results, and not a guarantee that the same outcome will happen again. They are included to show how signal data, risk sizing, and result tracking can be studied in a structured way.
+## Preserve the published session
 
-## Test Window
+Join records using the provided session/scan identifier, date, ticker, and event context. Preserve actual publication time, original rank, confirmation status, posted entry, stop, target, and execution/result basis. Track webhook delivery IDs separately from trade identity so retries cannot duplicate trades.
 
-| Item | Value |
-| --- | --- |
-| Test period | May 13, 2026 to June 12, 2026 |
-| Trading days checked | 22 |
-| Stock universe | 75 tickers |
-| Signal type | 9:30 AM ET official top-two confirmed buys |
-| Official exit | 10:05 AM ET quick exit |
-| Base account model | $5,000 account |
-| Risk model | Account-based sizing, commonly shown as 2% of available cash |
+Only confirmed signals belong in the official signal record. Research, Watch only, No buy, and Ungraded candidates are not trades. Eight candidates does not imply eight confirmations or eight fills.
 
-## Current Model
+## Measure the current morning model
 
-The live system is focused on the morning window:
+- Establish eligible entry from the published entry and post-publication evidence.
+- Follow target or stop after modeled entry, then the 10:05 AM Eastern reference exit for any remaining position.
+- Keep No fill, pending, and unavailable records distinct from completed trades. Exclude no fills from trade-return statistics; disclose unresolved coverage.
+- Review losses as well as wins. Read which costs are included rather than assuming a universal slippage or fee adjustment.
+- Keep personal broker fills and Journal P/L separate from modeled signal results.
 
-- 9:28 AM ET: the plan scan builds entry, stop, target, and sizing context.
-- 9:30 AM ET: valid names are ranked by opening strength, and only the top two become official buys.
-- 10:05 AM ET: the quick-exit result locks the official morning outcome.
+An illustrative $20 entry and $20.50 exit give +$0.50 per share, or +2.5%, before any costs not included in the record. This is arithmetic, not a forecast. Dollar outcomes depend on shares and execution.
 
-## Account Size Examples
+## Keep comparisons separate
 
-These examples show how the sizing basis can be represented in your own logs.
+The 3 PM holding study is hypothetical and excluded from official morning performance. Watchlist movement assumes no trade. Do not add later study gains to a position that already hit its morning target or stop.
 
-| Account size | Risk setting | Max risk dollars |
-| --- | --- | ---: |
-| $5,000 | 2% of available cash | $100 |
-| $10,000 | 2% of available cash | $200 |
+Older sessions retain their original confirmation and grading policies. Do not relabel historical study candidates as confirmations, or compare different policies without clearly disclosing the differences.
 
-Real fills, liquidity, slippage, broker rules, order timing, and user decisions can change actual results.
-
-## Why This Matters
-
-The point is not just "signals were green." The useful part is the process:
-
-- signals were generated from a repeatable framework
-- entries, stops, targets, and R-multiple context were defined
-- every signal could be logged automatically
-- no-pick days could still be recorded
-- users could route the same signal data into dashboards, sheets, alerts, AI agents, or broker workflows
-- 10:05 quick-exit results could be reviewed instead of guessed from memory
-
-That is the value of combining signal webhooks with a disciplined tracking layer.
-
-## Important Notes
-
-- Past performance does not guarantee future performance.
-- A signal can move in favor and still become a losing trade depending on execution and exit decisions.
-- The 10:05 quick-exit result is a study/result field, not a command to trade.
-- Brokerage fees, spread, slippage, taxes, and partial fills are not modeled here.
-- These examples are educational and should be validated with your own testing.
+Past, modeled, and hypothetical results do not guarantee future performance. See [DISCLAIMER.md](../DISCLAIMER.md).

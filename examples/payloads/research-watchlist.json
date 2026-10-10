@@ -1,0 +1,24 @@
+{
+  "event": "research_watchlist.created",
+  "dateKey": "2026-10-08",
+  "sentAt": "2026-10-08T13:15:25.000Z",
+  "data": {
+    "purpose": "Research only; not official signals.",
+    "researchWatchlist": [
+      {
+        "ticker": "DEMOA",
+        "name": "Illustrative candidate A",
+        "entry": 20,
+        "stop": 19.5,
+        "target": 20.5
+      },
+      {
+        "ticker": "DEMOB",
+        "name": "Illustrative candidate B",
+        "entry": 40,
+        "stop": 39,
+        "target": 41
+      }
+    ]
+  }
+}

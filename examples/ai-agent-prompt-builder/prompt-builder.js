@@ -14,6 +14,7 @@ const rows = rowsForPayload(payload);
 
 function rowsForPayload(payload) {
   const eventData = payload.data || {};
+  if (Array.isArray(eventData.researchWatchlist)) return eventData.researchWatchlist;
   if (Array.isArray(eventData.confirmedBuys)) return eventData.confirmedBuys;
   if (Array.isArray(eventData.quickExitResults)) return eventData.quickExitResults;
   if (eventData.scan) {
@@ -30,7 +31,10 @@ const prompt = [
   "Summarize the event in plain English for a trader.",
   "Do not provide financial advice.",
   "Do not invent missing fields.",
-  "If there are no rows, say that the event ran with no official picks.",
+  "Preparation and research are not confirmations. Rank alone is not an official status.",
+  "Keep morning outcomes, afternoon studies, and broker fills separate.",
+  "No fill and unavailable evidence are not completed trade returns.",
+  "If there are no rows, report no rows supplied; do not infer scan completion.",
   "",
   `Event: ${payload.event || "unknown"}`,
   `Date: ${payload.dateKey || "unknown"}`,

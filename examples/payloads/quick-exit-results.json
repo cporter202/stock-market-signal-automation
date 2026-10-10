@@ -1,50 +1,64 @@
 {
   "event": "quick_exit_results.created",
-  "dateKey": "2026-06-22",
-  "sentAt": "2026-06-22T14:06:10.000Z",
+  "dateKey": "2026-10-08",
+  "sentAt": "2026-10-08T14:06:10.000Z",
   "data": {
-    "scanId": "2026-06-22_morning",
-    "marketStatus": "BULLISH",
-    "marketDetail": "SPY/QQQ market context",
+    "scanId": "2026-10-08_morning",
     "confirmedBuyCount": 2,
     "noConfirmedBuys": false,
-    "sizingBasis": {
-      "personalized": true,
-      "availableCash": 5000,
-      "riskPct": 2,
-      "maxRiskDollars": 100
-    },
     "quickExitResults": [
       {
-        "ticker": "SOFI",
-        "entry": 12.34,
-        "shares": 400,
+        "ticker": "DEMOA",
+        "name": "Illustrative candidate A",
+        "entry": 20,
+        "stop": 19.5,
+        "target": 20.5,
+        "openingConfirmation": {
+          "officialRank": 2,
+          "status": "confirmed_buy",
+          "statusLabel": "Confirmed buy"
+        },
         "result": {
           "quickExit": {
-            "label": "10:05 AM quick exit",
-            "price": 12.58,
-            "profitDollars": 96,
-            "r": 0.96,
+            "label": "Morning reference execution",
+            "finalized": true,
+            "executionPrice": 20,
+            "price": 20.5,
+            "profitPerShare": 0.5,
+            "resultBasis": "target_first",
+            "executionBasis": "Published entry verified after publication; no embedded cost adjustment; not a broker fill",
             "status": "profit",
-            "statusLabel": "Profit"
+            "statusLabel": "Winner"
           }
         }
       },
       {
-        "ticker": "HOOD",
-        "entry": 84.2,
-        "shares": 80,
+        "ticker": "DEMOB",
+        "name": "Illustrative candidate B",
+        "entry": 40,
+        "stop": 39,
+        "target": 41,
+        "openingConfirmation": {
+          "officialRank": 5,
+          "status": "confirmed_buy",
+          "statusLabel": "Confirmed buy"
+        },
         "result": {
           "quickExit": {
-            "label": "10:05 AM quick exit",
-            "price": 84.92,
-            "profitDollars": 57.6,
-            "r": 0.58,
-            "status": "profit",
-            "statusLabel": "Profit"
+            "label": "Morning reference execution",
+            "finalized": true,
+            "executionPrice": 40,
+            "price": 39,
+            "profitPerShare": -1,
+            "resultBasis": "stop_first",
+            "executionBasis": "Published entry verified after publication; no embedded cost adjustment; not a broker fill",
+            "status": "loss",
+            "statusLabel": "Loser"
           }
         }
       }
-    ]
+    ],
+    "studyResults": [],
+    "studyCount": 0
   }
 }

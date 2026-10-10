@@ -17,7 +17,7 @@ If Make shows the test payload, the connection works.
 
 ## Common Automations
 
-- Send the 9:28 plan scan, 9:30 confirmed buys, and 10:05 quick-exit results to Discord.
+- Send the 9:28 plan scan, opening confirmations, and 10:05 quick-exit results to Discord.
 - Add rows to Google Sheets.
 - Send yourself an SMS when `confirmed_buys.created` has picks.
 - Create a daily Notion page.

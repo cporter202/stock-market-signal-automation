@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero.png" alt="Stock Market Signal Automation — swing-trade signals, webhooks, dashboards, AI agents" width="100%" />
+<img src="./assets/hero.jpg" alt="Stock Market Signal Automation — swing-trade signals, webhooks, dashboards, AI agents" width="100%" />
 
 <br />
 

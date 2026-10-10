@@ -1,36 +1,17 @@
 # Troubleshooting
 
-## My Test Webhook Works, But My Automation Does Nothing
+## No rows or no delivery
 
-Check whether your filter is looking at the current event field. The current rows live in `data.scan.buySignals`, `data.scan.watchSignals`, `data.confirmedBuys`, or `data.quickExitResults` depending on the event.
+An empty array supplies no rows for that event. Inspect event type, review completion, and candidate decisions before calling it a completed no-signal session. A test event checks delivery only. No delivery is a separate issue: check the selected events, endpoint, and delivery history.
 
-## I Got A No-Pick Payload
+## Missing or delayed decisions
 
-That is normal. It means the scan ran but no official top-two buys qualified, or the 10:05 result event had no confirmed buys to report.
+Check session date, actual publication time, and connection status. Ungraded candidates have incomplete evidence; do not infer confirmation or failure. Valid confirmed candidates can coexist with incomplete candidates.
 
-## I See Duplicate Events
+## Results differ from a broker account
 
-Store `X-KamdenAI-Delivery` and ignore delivery IDs you already processed.
+System outcomes use a stated model and evidence. Broker timing, prices, shares, costs, and exits can differ. Record personal execution in Journal. No fill and unavailable results are not completed return observations.
 
-## Signature Verification Fails
+## Duplicate events or signature errors
 
-Common causes:
-
-- you parsed JSON before capturing the raw body
-- wrong signing secret
-- wrong signing string
-- timestamp included incorrectly
-- uppercase/lowercase header mismatch
-
-## Make.com Says Internal Error
-
-Check:
-
-- the webhook URL starts with `https://`
-- the webhook URL is copied completely
-- the Make scenario is turned on or listening
-- the endpoint returns a 2xx response
-
-## Nothing Shows In My Delivery Log
-
-Check that the webhook is saved, active, and tied to the correct signed-in account. Also confirm your membership is active.
+Store delivery IDs to ignore retries. Verify the original raw body with the signing format documented in your account. Check the timestamp, server clock, and secret without printing credentials in logs. See [Security and Signing](security-and-signing.md).

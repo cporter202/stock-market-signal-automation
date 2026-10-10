@@ -1,88 +1,37 @@
 # Webhook Events
 
-KamdenAI signal webhooks are event-based. Your endpoint receives a JSON payload whenever a selected event is published.
+Use your account's Developer API documentation and test delivery as the source of truth for available fields. These public examples are abbreviated illustrations.
 
-## Event List
-
-| Event | Typical Time | Description |
+| Event | Reference stage | Data to read |
 | --- | --- | --- |
-| `webhook.test` | On demand | Test event from the Developer API page |
-| `morning_scan.created` | 9:28 AM ET | Morning plan scan |
-| `confirmed_buys.created` | 9:30 AM ET | Official top-two confirmed buys |
-| `quick_exit_results.created` | 10:05 AM ET | Official morning quick-exit result |
+| `webhook.test` | On demand | Connection test only |
+| `research_watchlist.created` | Around 9:15 AM Eastern | `data.researchWatchlist`; research only |
+| `morning_scan.created` | Around 9:28 AM Eastern | `data.scan.buySignals` and `watchSignals`; preparation only |
+| `confirmed_buys.created` | After opening review | `data.confirmedBuys`; zero to eight official confirmations |
+| `quick_exit_results.created` | Morning outcome processing | `data.quickExitResults`; target, stop, or 10:05 reference outcomes |
 
-Market holidays, weekends, data provider issues, or system maintenance can affect event timing and availability.
+Pre-open lists do not restrict the later official opening field. Do not cap confirmations at two, assume rank one is official, or infer confirmation from a preparation field named `buySignals`.
 
-## Shared Payload Shape
+## Read the full decision context
 
-```json
-{
-  "event": "confirmed_buys.created",
-  "dateKey": "2026-06-22",
-  "sentAt": "2026-06-22T13:30:15.000Z",
-  "data": {
-    "confirmedBuys": []
-  }
-}
-```
+When present, `data.confirmationResults` contains candidate decisions, including observation and incomplete-review records. Only `confirmedBuys` represents the official confirmed list. `openingConfirmation.officialRank` preserves a candidate's board rank; `status` and `statusLabel` describe its decision.
 
-## Current Event Payloads
+Use `dateKey` for the session, `data.publishedAt` for actual publication when provided, and `sentAt` for delivery creation. Neither reference schedule nor receipt time proves fresh publication. Preserve completion indicators such as `confirmationComplete` when included.
 
-| Event | Primary data field | Notes |
-| --- | --- | --- |
-| `morning_scan.created` | `data.scan` | Includes the morning scan object with `buySignals` and `watchSignals` plan rows. |
-| `confirmed_buys.created` | `data.confirmedBuys` | Contains only the official top-two 9:30 confirmations. Empty array means no official buys. |
-| `quick_exit_results.created` | `data.quickExitResults` | Contains 10:05 result rows for confirmed buys. `noConfirmedBuys` can be true. |
+## Empty, incomplete, and test events
 
-## Signal Fields
+An empty confirmed list means that this payload supplies no official confirmations. Check completion and candidate statuses before calling it a completed no-signal session. Missing evidence is not a failed qualification. No event arriving is a separate delivery/availability issue.
 
-Fields can vary by event, but signal-style payloads may include:
+A result event can have no confirmed buys to report. A confirmed signal can also have No fill or unavailable results. Do not convert these to profitable trades, losses, or zero-return fills. Test events do not prove a scan ran.
 
-| Field | Meaning |
-| --- | --- |
-| `ticker` | Stock symbol |
-| `company` | Company name when available |
-| `entry` | Planned entry area |
-| `stop` | Planned invalidation/stop area |
-| `target` | Planned target area |
-| `riskPerShare` | Entry minus stop |
-| `rewardPerShare` | Target minus entry |
-| `rMultipleTarget` | Target reward divided by risk |
-| `setup` | Public setup label |
-| `status` | Event-specific status |
-| `notes` | Public notes when available |
-| `shares` | Account-based share count when available |
-| `riskDollars` | Estimated dollar risk when available |
-| `openingConfirmation` | 9:30 confirmation details for confirmed-buy rows |
-| `result.quickExit` | 10:05 quick-exit outcome for result rows |
+See [no-picks.json](../examples/payloads/no-picks.json) and [confirmed-buys.json](../examples/payloads/confirmed-buys.json).
 
-## No-Pick Events
+## Results and studies
 
-No-pick days are normal. Your automation should handle:
+`result.quickExit` contains modeled morning outcome information when available. Read finalization, status, execution basis, and result basis before calculating returns. Separate `studyResults`, when present, must not be added to official morning results. See [Result Tracking](historical-results.md).
 
-```json
-{
-  "event": "confirmed_buys.created",
-  "dateKey": "2026-06-22",
-  "sentAt": "2026-06-22T13:30:15.000Z",
-  "data": {
-    "confirmedBuys": [],
-    "message": "No official top-two confirmed buys at 9:30."
-  }
-}
-```
+## Delivery handling
 
-This is useful because it confirms the scan ran, even when nothing qualified.
+Verify signatures against the raw request body, reject stale timestamps, and store `X-KamdenAI-Delivery` for duplicate protection. Deliveries may be retried. Markets, data availability, and processing affect timing; reference times are not guarantees.
 
-## Idempotency
-
-Webhook providers may retry deliveries. Store the delivery ID from the request headers and ignore duplicates.
-
-Expected headers:
-
-```text
-X-KamdenAI-Event
-X-KamdenAI-Delivery
-X-KamdenAI-Timestamp
-X-KamdenAI-Signature
-```
+See [Security and Signing](security-and-signing.md).

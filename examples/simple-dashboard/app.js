@@ -4,21 +4,33 @@ const errorText = document.querySelector("#errorText");
 const preview = document.querySelector("#preview");
 
 input.value = JSON.stringify({
-  event: "confirmed_buys.created",
-  dateKey: "2026-06-22",
-  sentAt: "2026-06-22T13:30:15.000Z",
-  data: {
-    confirmedBuys: [
+  "event": "confirmed_buys.created",
+  "dateKey": "2026-10-08",
+  "sentAt": "2026-10-08T13:34:10.000Z",
+  "data": {
+    "confirmedBuys": [
       {
-        ticker: "SOFI",
-        name: "SoFi Technologies",
-        entry: 24.5,
-        stop: 23.95,
-        target: 25.6,
-        shares: 181,
-        openingConfirmation: {
-          statusLabel: "Top 1 confirmed buy",
-          entryDistanceR: 0.42
+        "ticker": "DEMOA",
+        "name": "Illustrative candidate A",
+        "entry": 20,
+        "stop": 19.5,
+        "target": 20.5,
+        "openingConfirmation": {
+          "officialRank": 2,
+          "status": "confirmed_buy",
+          "statusLabel": "Confirmed buy"
+        }
+      },
+      {
+        "ticker": "DEMOB",
+        "name": "Illustrative candidate B",
+        "entry": 40,
+        "stop": 39,
+        "target": 41,
+        "openingConfirmation": {
+          "officialRank": 5,
+          "status": "confirmed_buy",
+          "statusLabel": "Confirmed buy"
         }
       }
     ]
@@ -50,12 +62,18 @@ function render() {
   preview.appendChild(header);
 
   const data = payload.data || {};
+  const note = document.createElement("div");
+  note.className = "meta";
+  note.textContent = payload.event === "morning_scan.created" || payload.event === "research_watchlist.created"
+    ? "Preparation only. Not official signals."
+    : "Illustrative data. Modeled outcomes are not broker fills; studies stay separate.";
+  preview.appendChild(note);
   const rows = rowsForPayload(payload);
 
   if (rows.length === 0) {
     const empty = document.createElement("div");
     empty.className = "card";
-    empty.innerHTML = `<strong>No picks</strong><div class="meta">${data.message || "No qualifying signals for this event."}</div>`;
+    empty.innerHTML = `<strong>No rows supplied</strong><div class="meta">${data.message || "No rows supplied. Check event type and review completion."}</div>`;
     preview.appendChild(empty);
     return;
   }
@@ -66,7 +84,8 @@ function render() {
     card.innerHTML = `
       <strong>${row.ticker || "Unknown"} ${row.company || row.name ? `- ${row.company || row.name}` : ""}</strong>
       <div class="meta">Entry: ${money(row.entry)} | Stop: ${money(row.stop)} | Target: ${money(row.target)}</div>
-      <div class="meta">${row.openingConfirmation?.statusLabel || row.result?.quickExit?.statusLabel || row.status || "n/a"}</div>
+      <div class="meta">${row.openingConfirmation?.statusLabel || row.status || "n/a"}</div>
+      <div class="meta">${row.result?.quickExit?.statusLabel || ""}</div>
     `;
     preview.appendChild(card);
   }
@@ -74,6 +93,7 @@ function render() {
 
 function rowsForPayload(payload) {
   const data = payload.data || {};
+  if (Array.isArray(data.researchWatchlist)) return data.researchWatchlist;
   if (Array.isArray(data.confirmedBuys)) return data.confirmedBuys;
   if (Array.isArray(data.quickExitResults)) return data.quickExitResults;
   if (data.scan) return [...(data.scan.buySignals || []), ...(data.scan.watchSignals || [])];

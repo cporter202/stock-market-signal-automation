@@ -1,10 +1,11 @@
 {
   "event": "webhook.test",
-  "dateKey": "2026-06-12",
-  "sentAt": "2026-06-12T23:25:00.000Z",
+  "dateKey": "2026-10-08",
+  "sentAt": "2026-10-08T13:00:00.000Z",
   "data": {
-    "message": "KamdenAI webhook test delivery for the current morning execution system.",
+    "message": "Illustrative delivery test only.",
     "currentEvents": [
+      "research_watchlist.created",
       "morning_scan.created",
       "confirmed_buys.created",
       "quick_exit_results.created"

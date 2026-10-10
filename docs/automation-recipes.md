@@ -66,8 +66,8 @@ Best for: experienced builders. Start with paper trading.
 ```text
 Webhook received
   -> if confirmedBuys is empty or noConfirmedBuys is true
-  -> log scan ran successfully
+  -> log no confirmed rows supplied; inspect review completion
   -> send optional "no picks today" note
 ```
 
-Best for: proving your automation is working even when the market gives no setups.
+Best for: tracking delivered empty events separately from incomplete reviews and missing deliveries.

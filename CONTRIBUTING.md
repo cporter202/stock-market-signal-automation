@@ -20,3 +20,7 @@ Do not contribute:
 - Broker credentials
 
 Keep examples simple, readable, and safe by default.
+
+## Public guide review
+
+Keep member-facing behavior aligned with the dated current guide. Use fictional symbols and invented prices. Describe status, published plans, and result assumptions without explaining how the engine selects or ranks candidates. Do not copy private source, research reports, qualification thresholds, weights, internal version names, operational endpoints, or paid session data into docs, commits, issues, or pull requests.

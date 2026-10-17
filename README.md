@@ -6,17 +6,6 @@
 
 # 📈 Stock Market Signal Automation
 
-<!-- AIWITHCHRIS-BANNER-START -->
-<p align="center">
-  <a href="https://aiwithchris.com" target="_blank" rel="noopener">
-    <img src=".github/assets/ai-toolkit-banner.png" alt="Hey, I'm Chris — Work Smarter, Create Faster, Earn More With AI. Join my AI Playbook at aiwithchris.com, $10/month" width="100%">
-  </a>
-</p>
-<p align="center">
-  <a href="https://aiwithchris.com"><strong>🚀 Join my AI Playbook — aiwithchris.com</strong></a><br>
-  $10/month · 3,600+ prompts · agent workflows · repo breakdowns · money ideas
-</p>
-<!-- AIWITHCHRIS-BANNER-END -->
 
 **Eight ranked candidates. Clear decisions. A plan for every confirmation.**
 
@@ -151,3 +140,16 @@ MIT applies to this repository's public materials — see [LICENSE](LICENSE). It
 ## ⚠️ Disclaimer
 
 This repository is for educational and software-development purposes only. Nothing here is financial advice, investment advice, or a recommendation to buy, sell, hold, or trade any security. Trading involves substantial risk — you can lose money. Past performance and sample results do not guarantee future performance. Test everything in a paper trading environment before using real capital. Full text: [DISCLAIMER.md](DISCLAIMER.md).
+
+<!-- AIWITHCHRIS-BANNER-START -->
+<p align="center">
+  <a href="https://aiwithchris.com" target="_blank" rel="noopener">
+    <img src=".github/assets/ai-toolkit-banner.png" alt="Hey, I'm Chris — Work Smarter, Create Faster, Earn More With AI. Join my AI Playbook at aiwithchris.com, $10/month" width="100%">
+  </a>
+</p>
+<p align="center">
+  <a href="https://aiwithchris.com"><strong>🚀 Join my AI Playbook — aiwithchris.com</strong></a><br>
+  $10/month · 3,600+ prompts · agent workflows · repo breakdowns · money ideas
+</p>
+<!-- AIWITHCHRIS-BANNER-END -->
+
